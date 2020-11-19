@@ -11,26 +11,34 @@
 
 // CREO CONTENITORE PER LE MINE
 var arrayMine = [];
+var numeriUtente =[]
 
-// GENERATORE MINE
-
-generatoreDi16NumeriCasuali(arrayMine)
+// GENERO E CONTROLLO NUMERI PC
+while (arrayMine.length < 16) {
+	var number = randomNumber();
+  var alreadyExist = isDuplicated(number, arrayMine);
+  if( alreadyExist == false ) {
+  	 arrayMine.push(number);
+  }
+}
 console.log(arrayMine);
 
 
-
-
-
-
 // CHIEDO INPUT UTENTE
-// var numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
-// while ((numeroUtente < 1) || (numeroUtente > 100)) {
-//   alert("Devi inserire un numero da 1 a 100!!!!");
-//   numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
-// }
-// console.log("questo è il tuo numero ", numeroUtente);
-//
-// // INIZIO IL GIOCO
+var numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
+while ((numeroUtente < 1) || (numeroUtente > 100)) {
+  alert("Devi inserire un numero da 1 a 100!!!!");
+  numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
+  var i = 0;
+  while (i < arrayMine.length;) {
+    if (numeriUtente == array[i]) {
+
+    }
+  }
+}
+console.log("questo è il tuo numero ", numeroUtente);
+
+// INIZIO IL GIOCO
 // campoMinato(arrayMine, numeroUtente);
 
 
@@ -46,29 +54,33 @@ console.log(arrayMine);
 
 //-----------------------------------------------------------------------
 
-// FUNZIONE GENERA NUMERI CASUALI
-function generatoreDi16NumeriCasuali(array) {
-  var i = 1;
-  while ( i <= 16) {
-    // GENERO 16 MINE
-    var numero = Math.floor(Math.random() * 100) + 1;
-    // INSERISCO LE MINE NEL CONTENITORE
-    i++
-    array.push(numero);
-  }
+// FUNZIONE GENERA NUMERO CASUALE
+function randomNumber() {
+  return Math.floor(Math.random() * 100) + 1;
 }
-// CREO REGOLE GIOCO
-function campoMinato(array, numero) {
-  var result = (false)
-  for (var i = 0; i < array.length; i++) {
-    if (numero == array[i]) {
-      result = (true)
+
+// CONTROLLO NUMERI
+function isDuplicated(numero, array) {
+	var exist = false;
+  for(var i = 0; i < array.length; i++) {
+  	if(array[i] == numero) {
+    	exist = true;
     }
   }
-  if (result == true) {
-    alert("Hai perso!")
-  } else {
-    alert("Sei stato fortunato, prosegui!")
-    numero = parseInt(prompt("inserisci un numero da 1 a 100"));
-  }
+  return exist;
 }
+
+// function campoMinato(array, numero) {
+//   var result = (false)
+//   for (var i = 0; i < array.length; i++) {
+//     if (numero == array[i]) {
+//       result = (true)
+//     }
+//   }
+//   if (result == true) {
+//     alert("Hai perso!")
+//   } else {
+//     alert("Sei stato fortunato, prosegui!")
+//     numero = parseInt(prompt("inserisci un numero da 1 a 100"));
+//   }
+// }
