@@ -12,23 +12,35 @@
 // FACCIO GENERARE AL COMPUTER 16 NUMERI CASUALI DA 1 A 100
 // CREO CONTENITORE PER LE MINE
 var arrayMine = [];
-console.log(arrayMine);
+
 // CREO IL CICLO GENERATORE DI MINE
 for (var i = 0; i < 16; i++) {
   // GENERO 16 MINE
   var mine = Math.floor(Math.random() * 100) + 1;
   // INSERISCO LE MINE NEL CONTENITORE
   arrayMine.push(mine);
-  console.log(mine);
 }
-
+console.log(arrayMine);
 
 // CHIEDO INPUT UTENTE
 var numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
 while ((numeroUtente < 1) || (numeroUtente > 100)) {
   alert("Devi inserire un numero da 1 a 100!!!!");
   numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
-
 }
-// OTTENGO UN NUMERO DA 1 a 100
-console.log("questo è il ", numeroUtente);
+console.log("questo è il tuo numero ", numeroUtente);
+
+// CREO REGOLE GIOCO
+var result = (false)
+for (var i = 0; i < arrayMine.length; i++) {
+  if (numeroUtente == arrayMine[i]) {
+    result = (true)
+  }
+}
+
+if (result == true) {
+  alert("Hai perso!")
+} else {
+  alert("Sei stato fortunato, prosegui!")
+  numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
+}
