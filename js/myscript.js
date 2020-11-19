@@ -23,18 +23,31 @@ while (arrayMine.length < 16) {
 }
 console.log(arrayMine);
 
-
+alert("Inizia il Gioco")
 // CHIEDO INPUT UTENTE
 var numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
 while ((numeroUtente < 1) || (numeroUtente > 100)) {
+	// controllo che inserisca i numeri giusti
   alert("Devi inserire un numero da 1 a 100!!!!");
   numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
-  var i = 0;
-  while (i < arrayMine.length;) {
-    if (numeriUtente == array[i]) {
+}
 
-    }
-  }
+// controllo se il numero è presente nell'array del pc
+
+var i = 0;
+result = false;
+while (i < arrayMine.length) {
+	if (numeroUtente == arrayMine[i]) {
+	result = true;
+	}
+	if (result == false) {
+	 alert("Ottimo Prosegui!")
+ 	 numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
+	}
+	i++;
+}
+if (result == true) {
+ alert("Hai Perso!")
 }
 console.log("questo è il tuo numero ", numeroUtente);
 
