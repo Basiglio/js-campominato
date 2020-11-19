@@ -12,23 +12,26 @@
 // CREO CONTENITORE PER LE MINE
 var arrayMine = [];
 
-// CREO IL CICLO GENERATORE DI MINE
+// GENERATORE MINE
 
-
-generatoreDiNumeriCasuali(arrayMine)
+generatoreDi16NumeriCasuali(arrayMine)
 console.log(arrayMine);
 
 
-// CHIEDO INPUT UTENTE
-var numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
-while ((numeroUtente < 1) || (numeroUtente > 100)) {
-  alert("Devi inserire un numero da 1 a 100!!!!");
-  numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
-}
-console.log("questo è il tuo numero ", numeroUtente);
 
-// INIZIO IL GIOCO
-campoMinato(arrayMine, numeroUtente);
+
+
+
+// CHIEDO INPUT UTENTE
+// var numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
+// while ((numeroUtente < 1) || (numeroUtente > 100)) {
+//   alert("Devi inserire un numero da 1 a 100!!!!");
+//   numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
+// }
+// console.log("questo è il tuo numero ", numeroUtente);
+//
+// // INIZIO IL GIOCO
+// campoMinato(arrayMine, numeroUtente);
 
 
 
@@ -44,7 +47,7 @@ campoMinato(arrayMine, numeroUtente);
 //-----------------------------------------------------------------------
 
 // FUNZIONE GENERA NUMERI CASUALI
-function generatoreDiNumeriCasuali(array) {
+function generatoreDi16NumeriCasuali(array) {
   var i = 1;
   while ( i <= 16) {
     // GENERO 16 MINE
@@ -54,7 +57,6 @@ function generatoreDiNumeriCasuali(array) {
     array.push(numero);
   }
 }
-
 // CREO REGOLE GIOCO
 function campoMinato(array, numero) {
   var result = (false)
