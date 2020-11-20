@@ -17,8 +17,11 @@ var start = document.getElementById("start");
  start.addEventListener('click',
  function () {
 	 // DEFINISCO I LIVELLI DI DIFFICOLTà
-	 var level = prompt("Scegli il livello di difficoltà: 0, 1 o 2")
+	 var level = prompt("Scegli il livello di difficoltà: 0, 1, 2 o Insane")
 	 switch (level) {
+		case "Insane":
+ 	 	 maxNumber = 25;
+ 	 	break;
 	 	case "2":
 	 	 maxNumber = 50;
 	 	 break;
@@ -74,8 +77,8 @@ var start = document.getElementById("start");
 	 		alert("numero duplicato");
 	 	}
 	 }
-	 alert("il tuo punteggio è " + score);
-	 console.log("array utente " + attemps);
+	 // alert("il tuo punteggio è " + score);
+	 document.getElementById("result").innerHTML = score;
  });
 
 //--------------------------------------------------------------
