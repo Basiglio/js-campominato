@@ -26,23 +26,30 @@ while (arrayBombs.length < 16) {
 	}
 	// SE C'è RIPARTE IL CICLO
 }
-console.log(arrayBombs);
+console.log("array bombe " + arrayBombs);
 
 
 // SET UP GIOCO
-
-while (attemps.length < maxAttemps) {
+var lose = false;
+// CONDIZIONI DEL WHILE: ENTRA NEL CICLO E PROSEGUILO FINO A QUANDO ARRIVO ALLA FINE DEI MIEI TENTATIVI E FINO A QUANDO IL GAMECHECK RIMANE FALSE
+while (attemps.length < maxAttemps && lose == false) {
 	// CHIEDO PRIMO NUMERO TRAMITE PROMPT
 	var userNumber = parseInt(prompt("inserisci un numero compreso tra 1 e 100"))
 	// CERCO SE IL NUMERO è GIA PRESENTE NELL'ARRAY DEI NUMERI UTENTE
 	var check2 = isInArray(attemps, userNumber);
-
-
-	if (check2 == false) {
+	// CERCO IL NUMERO NELL'ARRAY DELLE BOMBE
+	var gameCheck = isInArray(arrayBombs, userNumber)
+	// SE TROVO UN BOMBA PERDO ESCO DAL CICLO
+	if (gameCheck == true){
+		alert("Hai perso!")
+		lose = true;
+	}
+	// SE NON LA TROVO PROSEGUI CON IL CICLO
+	if (check == false) {
 		attemps.push(userNumber);
 	}
 }
-console.log(attemps);
+console.log("array utente " + attemps);
 
 
 
