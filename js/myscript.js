@@ -42,14 +42,6 @@ console.log(arrayBombs);
 
 
 
-
-
-
-
-
-
-
-
 //------------------------------------------------------------------------
 
 // FUNZIONE PER CREARE UN NUMERO CASUALE
