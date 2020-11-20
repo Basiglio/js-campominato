@@ -6,14 +6,20 @@
 // La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
-
+// ARRAY BOMBE
 var arrayBombs = [];
-var maxAttemps;
+// ARRAY TENTATIVI
 var attemps = [];
+// TENTATIVI MASSIMI
+var maxAttemps;
+// PUNTEGGIO
 var score = 0;
-var level;
-var maxNumber;
 
+// LIVELLO DI DIFFICOLTà
+var level;
+// NUMERO DI TENTATIVI IN BASE AL LIVELLO DI DIFFICOLTA
+var maxNumber;
+// DEFINISCO I LIVELLI DI DIFFICOLTà
 var level = prompt("Scegli il livello di difficoltà: 0, 1 o 2")
 switch (level) {
 	case "2":
@@ -25,6 +31,7 @@ switch (level) {
 	default :
 	 maxNumber = 100;
 }
+// SOTTRAGGO LE MINE DAI TENTATIVI MASSIMI PER LIVELLO DI DIFFICOLTà
 var maxAttemps = maxNumber - 16;
 
 // GENERO BOMBE
@@ -33,8 +40,7 @@ while (arrayBombs.length < 16) {
 	var randomNumber = randomIntegerBetween(1, maxNumber);
 	// CONTROLLO SE IL NUMERO è GIA NELL'ARRAY
 	var check = isInArray(arrayBombs, randomNumber);
-
-	// SE NON C'è PUSHA NELL'ARRAY E RIPARTE IL CICLO
+  // SE NON C'è PUSHA NELL'ARRAY E RIPARTE IL CICLO
 	if (check == false) {
 		arrayBombs.push(randomNumber);
 	}
@@ -66,6 +72,8 @@ while (attemps.length < maxAttemps && lose == false) {
 		alert("numero duplicato")
 	}
 }
+
+
 alert("il tuo punteggio è " + score)
 console.log("array utente " + attemps);
 
