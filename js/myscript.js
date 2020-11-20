@@ -8,15 +8,29 @@
 
 
 var arrayBombs = [];
-var maxAttemps = 5;
+var maxAttemps;
 var attemps = [];
 var score = 0;
+var level;
+var maxNumber;
 
+var level = prompt("Scegli il livello di difficoltà: 0, 1 o 2")
+switch (level) {
+	case "2":
+	 maxNumber = 50;
+	 break;
+	case "1":
+   maxNumber = 80;
+	 break;
+	default :
+	 maxNumber = 100;
+}
+var maxAttemps = maxNumber - 16;
 
 // GENERO BOMBE
 while (arrayBombs.length < 16) {
 	// GENERO NUMERO CASUALE
-	var randomNumber = randomIntegerBetween(1, 100);
+	var randomNumber = randomIntegerBetween(1, maxNumber);
 	// CONTROLLO SE IL NUMERO è GIA NELL'ARRAY
 	var check = isInArray(arrayBombs, randomNumber);
 
@@ -34,7 +48,7 @@ var lose = false;
 // CONDIZIONI DEL WHILE: ENTRA NEL CICLO E PROSEGUILO FINO A QUANDO ARRIVO ALLA FINE DEI MIEI TENTATIVI E FINO A QUANDO IL GAMECHECK RIMANE FALSE
 while (attemps.length < maxAttemps && lose == false) {
 	// CHIEDO PRIMO NUMERO TRAMITE PROMPT
-	var userNumber = parseInt(prompt("inserisci un numero compreso tra 1 e 100"))
+	var userNumber = parseInt(prompt("inserisci un numero compreso tra 1 e " + maxNumber));
 	// CERCO SE IL NUMERO è GIA PRESENTE NELL'ARRAY DEI NUMERI UTENTE
 	var checkUserNumber = isInArray(attemps, userNumber);
 	// CERCO IL NUMERO NELL'ARRAY DELLE BOMBE
