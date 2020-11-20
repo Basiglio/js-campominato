@@ -55,6 +55,11 @@ var lose = false;
 while (attemps.length < maxAttemps && lose == false) {
 	// CHIEDO PRIMO NUMERO TRAMITE PROMPT
 	var userNumber = parseInt(prompt("inserisci un numero compreso tra 1 e " + maxNumber));
+	// SE L'UTENTE NON INSERISCE UN NUMERO NEI PARAMETRI ENTRO IN QUESTO WHILE E CI RESTO FINO A QUANDO NON METTE I NUMERI GIUSTI
+	while ((userNumber < 1) || (userNumber > maxNumber)) {
+		alert("devi inserire un numero tra 1 e " + maxNumber)
+		userNumber = parseInt(prompt("inserisci un numero compreso tra 1 e " + maxNumber));
+	}
 	// CERCO SE IL NUMERO è GIA PRESENTE NELL'ARRAY DEI NUMERI UTENTE
 	var checkUserNumber = isInArray(attemps, userNumber);
 	// CERCO IL NUMERO NELL'ARRAY DELLE BOMBE
