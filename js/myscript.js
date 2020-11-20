@@ -8,21 +8,19 @@
 
 
 var arrayBombs = [];
-var maxAttemps = 10;
-var arrayAttemps = [];
+var maxAttemps = 5;
+var attemps = [];
 var score = 0;
 
 
 // GENERO BOMBE
-var i = 0;
-while (arrayBombs.lenght < 16) {
+while (arrayBombs.length < 16) {
 	// GENERO NUMERO CASUALE
 	var randomNumber = randomIntegerBetween(1, 100);
-	console.log(randomNumber);
 	// CONTROLLO SE IL NUMERO è GIA NELL'ARRAY
 	var check = isInArray(arrayBombs, randomNumber);
 
-	// SE NON C'è PUSHA NELL'ARRAY
+	// SE NON C'è PUSHA NELL'ARRAY E RIPARTE IL CICLO
 	if (check == false) {
 		arrayBombs.push(randomNumber);
 	}
@@ -31,7 +29,20 @@ while (arrayBombs.lenght < 16) {
 console.log(arrayBombs);
 
 
+// SET UP GIOCO
 
+while (attemps.length < maxAttemps) {
+	// CHIEDO PRIMO NUMERO TRAMITE PROMPT
+	var userNumber = parseInt(prompt("inserisci un numero compreso tra 1 e 100"))
+	// CERCO SE IL NUMERO è GIA PRESENTE NELL'ARRAY DEI NUMERI UTENTE
+	var check2 = isInArray(attemps, userNumber);
+
+
+	if (check2 == false) {
+		attemps.push(userNumber);
+	}
+}
+console.log(attemps);
 
 
 
