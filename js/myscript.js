@@ -7,28 +7,28 @@
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
 
+var arrayBombs = [];
+var maxAttemps = 10;
+var arrayAttemps = [];
+var score = 0;
 
 
-// CREO CONTENITORE PER LE MINE
-var arrayMine = [];
-// CREO CONTENITORE NUMERI UTENTE
-var arrayUtente =[]
-// NUMERO TENTATIVI
-var tantativi = 5;
-// PUNTEGGIO
-var punteggio = [];
+// GENERO BOMBE
+var i = 0;
+while (arrayBombs.lenght < 16) {
+	// GENERO NUMERO CASUALE
+	var randomNumber = randomIntegerBetween(1, 100);
+	console.log(randomNumber);
+	// CONTROLLO SE IL NUMERO è GIA NELL'ARRAY
+	var check = isInArray(arrayBombs, randomNumber);
 
-
-
-// GENERO E CONTROLLO NUMERI PC (fino a quando il mio array non arriva a 16 contenuti continua a generare numeri casuali che non siano uguali)
-while (arrayMine.length < 16) {
-	var mina = randomNumber();
-  var controlloEsistenza = isInArray(mina, arrayMine);
-  if( controlloEsistenza == false ) {
-  	 arrayMine.push(mina);
-  }
+	// SE NON C'è PUSHA NELL'ARRAY
+	if (check == false) {
+		arrayBombs.push(randomNumber);
+	}
+	// SE C'è RIPARTE IL CICLO
 }
-console.log(arrayMine);
+console.log(arrayBombs);
 
 
 
@@ -50,67 +50,21 @@ console.log(arrayMine);
 
 
 
+//------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//-----------------------------------------------------------------------
-
-// FUNZIONE GENERA NUMERO CASUALE
-function randomNumber() {
-  var number = Math.floor(Math.random() * 100) + 1;
-	return number;
+// FUNZIONE PER CREARE UN NUMERO CASUALE
+function randomIntegerBetween(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// CONTROLLO NUMERI
-function isInArray(numero, array) {
-	var exist = false;
-  for(var i = 0; i < array.length; i++) {
-  	if(array[i] == numero) {
-    	exist = true;
-			return exist;
-    }
-  }
-  return exist;
+// FUNZIONE PER CERCARE IN UN ARRAY
+function isInArray(array, element) {
+	var result = false;
+	for (var i = 0; i < array.length; i++) {
+		if (element == array[i]) {
+			result = true;
+			return result;
+		}
+	}
+	return result;
 }
-
-
-
-
-
-
-
-
-//
-// while (arrayUtente.lenght < tentativi) {
-// 	var numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
-// 	while ((numeroUtente < 1) || (numeroUtente > 100)) {
-// 	// CONTROLLO CHE INSERISCA I NUMERI GIUSTI
-// 	  alert("Devi inserire un numero da 1 a 100!!!!");
-// 	  numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"));
-// 	}
-//
-//
-//
-// }
