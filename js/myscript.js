@@ -36,19 +36,23 @@ while (attemps.length < maxAttemps && lose == false) {
 	// CHIEDO PRIMO NUMERO TRAMITE PROMPT
 	var userNumber = parseInt(prompt("inserisci un numero compreso tra 1 e 100"))
 	// CERCO SE IL NUMERO è GIA PRESENTE NELL'ARRAY DEI NUMERI UTENTE
-	var check2 = isInArray(attemps, userNumber);
+	var checkUserNumber = isInArray(attemps, userNumber);
 	// CERCO IL NUMERO NELL'ARRAY DELLE BOMBE
 	var gameCheck = isInArray(arrayBombs, userNumber)
 	// SE TROVO UN BOMBA PERDO ESCO DAL CICLO
 	if (gameCheck == true){
 		alert("Hai perso!")
 		lose = true;
-	}
-	// SE NON LA TROVO PROSEGUI CON IL CICLO
-	if (check == false) {
+		// SE NON LA TROVO PROSEGUI CON IL CICLO
+	} else if (checkUserNumber == false) {
 		attemps.push(userNumber);
+		// AUMENTO LO SCORE
+		score++;
+	} else {
+		alert("numero duplicato")
 	}
 }
+alert("il tuo punteggio è " + score)
 console.log("array utente " + attemps);
 
 
